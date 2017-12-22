@@ -7,6 +7,9 @@ from requests import request
 from requests.exceptions import HTTPError
 
 from .utils import ceil_dt, transform_datetime
+from django.utils.encoding import smart_unicode
+
+from mailchimp.utils.alphabet import remove_norwegian_diacritics
 
 
 def remove_empty(d):
@@ -48,6 +51,7 @@ class Connection(object):
 
     def _get_email_hash(self, email):
         md = hashlib.md5()
+        email = remove_norwegian_diacritics(smart_unicode(email, 'UTF-8'))
         md.update(email.lower())
         return md.hexdigest()
 
