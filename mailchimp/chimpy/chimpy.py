@@ -6,9 +6,10 @@ from warnings import warn
 from requests import request
 from requests.exceptions import HTTPError
 
-from .utils import ceil_dt, transform_datetime, remove_norwegian_diacritics
+from .utils import ceil_dt, transform_datetime
 from django.utils.encoding import smart_unicode
 
+from ..utils import remove_norwegian_diacritics
 
 
 def remove_empty(d):
