@@ -6,7 +6,7 @@ from warnings import warn
 from requests import request
 from requests.exceptions import HTTPError
 
-from mailchimp.utils import remove_norwegian_diacritics
+from mailchimp.remove_norwegian_diacritics import remove_norwegian_diacritics
 from .utils import ceil_dt, transform_datetime
 from django.utils.encoding import smart_unicode
 
